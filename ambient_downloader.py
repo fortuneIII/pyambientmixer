@@ -54,7 +54,7 @@ def download_sounds(xml_file):
 	for chan_num in range(1,9):
 		channel = getattr(obj.audio_template, "channel{}".format(chan_num))
 		new_filename = channel.id_audio.cdata
-		url = channel.url_audio.cdata
+		url = channel.url_audio.cdata.replace(".mp3",".ogg") # change download url to .ogg file
 		ext = url.split('.')[-1]
 		filename = os.path.join("sounds", new_filename + "." + ext)
 		filename_ogg = os.path.join("sounds", new_filename + ".ogg")
